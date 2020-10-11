@@ -21,6 +21,12 @@ public class UserController {
     // マッピング設定
     @PostMapping("/newuser")
     public String registerUser(UserForm userForm) {
+        // バリデーションの結果、エラーがあるかどうかチェック
+        if (bindingResult.hasErrors()) {
+            // エラーがある場合はユーザー登録画面を返す
+            return "newuser";
+        }
+    	
         // UserFormの値をUserクラス（Entity）にセットする
         User user = new User();
         user.setName(userForm.getName());
