@@ -37,4 +37,14 @@ public class UserController {
 
         return "redirect:/users";
     }
+    
+    // deleteUserメソッドを追加
+    // リクエストマッピング設定を追加
+    @DeleteMapping("/users/{id}")
+    public String deleteUser(@PathVariable Long id) {
+        // 指定したIDのユーザーを削除
+        userRepository.deleteById(id);
+    	
+        return "redirect:/users";
+    }
 }
