@@ -17,4 +17,18 @@ public class UserController {
        model.addAttribute("userForm", userForm);
        return "newuser";
     }
+    
+    // マッピング設定
+    @PostMapping("/newuser")
+    public String registerUser(UserForm userForm) {
+        // UserFormの値をUserクラス（Entity）にセットする
+        User user = new User();
+        user.setName(userForm.getName());
+        user.setEmail(userForm.getEmail());
+
+        // データベースに保存
+        userRepository.save(user);
+
+        return "redirect:/users";
+    }
 }
