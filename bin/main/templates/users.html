@@ -15,6 +15,12 @@
     <td th:text="${user.id}"></td><!-- 表示したいタグにth:textを追加 -->
     <td th:text="${user.name}"></td><!-- 表示したいタグにth:textを追加 -->
     <td th:text="${user.email}"></td><!-- 表示したいタグにth:textを追加 -->
+    <!-- 削除ボタンを追加 -->
+    <td>
+      <form th:action="@{'/users/' + ${user.id}}" th:method="delete">
+        <input type="submit" value="削除">
+      </form>
+    </td>
   </tr>
 </table>
 <!-- ユーザー登録画面へのリンク追加 -->
