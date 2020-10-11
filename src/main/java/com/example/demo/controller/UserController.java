@@ -9,12 +9,12 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/users")
-    // ˆø”‚Éorg.springframework.ui.Model‚ğ’Ç‰Á
-    public String getUsers(Model model) {
-        List<User> users = userRepository.findAll();
-        // Model‚Éusers‚ğ’Ç‰Á
-        model.addAttribute("users", users);
-        return "users";
+    @GetMapping("/newuser")
+    // ˆø”‚ÉModel‚ğ’Ç‰Á
+    public String getNewUser(Model model) {
+       // Model‚É‹ó‚ÌUserForm‚ğ’Ç‰Á
+       UserForm userForm = new UserForm();
+       model.addAttribute("userForm", userForm);
+       return "newuser";
     }
 }
